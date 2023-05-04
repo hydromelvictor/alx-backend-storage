@@ -6,8 +6,7 @@ BEGIN
     INSERT INTO `projects` (`name`)
     VALUES (`project_name`)
     WHERE NO EXISTS(
-        SELECT `name`
-        FROM `projects`
+        SELECT * FROM `projects`
         WHERE `name`=`project_name`
         );
     INSERT INTO `corrections` (`user_id`, `project_id`, `score`)
