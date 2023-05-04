@@ -1,19 +1,21 @@
 -- Write a SQL script that creates a stored
 -- procedure AddBonus that adds a new 
 DELIMITER $$
-CREATE PROCEDURE AddBonus (IN user_id  INT, IN project_name VARCHAR(255), IN score INT)
+CREATE PROCEDURE AddBonus (IN user_id  INTEGER, IN project_name VARCHAR(255), IN score INTEGER)
 BEGIN
-    SELECT IF (EXISTS(
+    INSERT INTO `projects` (`name`)
+    VALUES (`project_name`)
+    WHERE NO EXISTS(
         SELECT `name`
         FROM `projects`
-        WHERE `name`=`project_name`),
-        SELECT `name`
-        FROM `projects`
-        WHERE `name`=`project_name`,
-        INSERT INTO `projects`('name')
-        VALUES (`project_name`)
-        ) AS result;
+        WHERE `name`=`project_name`
+        );
     INSERT INTO `corrections` (`user_id`, `project_id`, `score`)
-    VALUES (`user_id`, result.`id`, `score`);
+    VALUES (`user_id`,
+        (SELECT `id`
+        FROM `projects`
+        WHERE `name` = `project_name`),
+        `score`
+        );
 END$$
 DELIMITER ;
