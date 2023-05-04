@@ -4,10 +4,11 @@ DELIMITER $$
 CREATE PROCEDURE ComputeAverageWeightedScoreForUser(IN user_id INTEGER)
 BEGIN
     UPDATE `users`
-    SET average_score = (SELECT AVG(`score` * `weight`)
-    FROM `corrections`, `projects`
-    WHERE `corrections`.`user_id` = `user_id`,
-    `projects`.`id` = `corrections`.`project_id`)
+    SET average_score = (SELECT SUM(`score` * `weight`)/(`weight`)
+    FROM `corrections`
+    INNER JOIN `projects`
+    ON `projects`.`id` = `corrections`.`project_id`
+    WHERE `corrections`.`user_id` = `user_id`)
     WHERE `id` = `user_id`;
 END $$
 DELIMITER ;
