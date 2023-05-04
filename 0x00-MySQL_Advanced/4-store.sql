@@ -4,4 +4,6 @@ CREATE TRIGGER decon
 AFTER INSERT
 ON `order`
 FOR EACH ROW
-SET @quantity = @quantity - NEW.`number`;
+UPDATE items
+SET quantity = quantity - NEW.`number`
+WHERE ;
