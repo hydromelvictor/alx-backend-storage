@@ -5,7 +5,7 @@ CREATE PROCEDURE AddBonus (IN user_id  INTEGER, IN project_name VARCHAR(255), IN
 BEGIN
     INSERT INTO `projects` (`name`)
     VALUES (`project_name`)
-    WHERE NO EXISTS(
+    WHERE NOT EXISTS(
         SELECT * FROM `projects`
         WHERE `name`=`project_name`
         );
