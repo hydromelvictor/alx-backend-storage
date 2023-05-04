@@ -6,5 +6,5 @@ BEGIN
     SELECT AVG(`score`)
     FROM `corrections`
     WHERE `corrections`.`user_id` = "user_id";
-END$$
+END $$
 DELIMITER ;
