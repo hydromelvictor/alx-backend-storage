@@ -1,10 +1,8 @@
 -- Write a SQL script that creates a function
 -- SafeDiv that divides (and returns) the first
 DELIMITER $$
-CREATE FUNCTION SafeDiv(a, b)
+CREATE FUNCTION SafeDiv(a INT, b INT)
 BEGIN
-    IF b = 0
-        SET 0;
-    SET b / a;
+    RETURN (IF(b=0, 0, b / a ));
 END$$
 DELIMITER ;
