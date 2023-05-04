@@ -4,4 +4,6 @@ CREATE TRIGGER ren
 AFTER UPDATE
 ON `users`
 FOR EACH ROW
-@email = NEW.`email`;
+Update `users`
+SET email = NEW.`email`
+WHERE `id` = NEW.`id`;
