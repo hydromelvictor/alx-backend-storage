@@ -1,5 +1,5 @@
--- 
--- 
+-- Write a SQL script that creates a view
+-- Write a SQL script that creates a view
 CREATE VIEW need_meeting AS
     SELECT `name`
     FROM `students`
