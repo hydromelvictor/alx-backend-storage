@@ -1,7 +1,7 @@
 -- Write a SQL script that creates a stored
 -- procedure ComputeAverageScoreForUser
 DELIMITER $$
-DROP PROCEDURE IF EXISTS ComputeAverageWeightedScoreForUser
+DROP PROCEDURE IF EXISTS ComputeAverageWeightedScoreForUser;
 CREATE PROCEDURE ComputeAverageWeightedScoreForUser()
 BEGIN
     UPDATE `users`
