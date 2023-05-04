@@ -6,4 +6,4 @@ ON `orders`
 FOR EACH ROW
 UPDATE items
 SET quantity = quantity - NEW.`number`
-WHERE `orders`.`item_name` = `items`.`name`;
+WHERE `name` = New.`item_name`;
