@@ -3,7 +3,8 @@
 DELIMITER $$
 CREATE FUNCTION SafeDiv(a, b)
 BEGIN
-    SELECT IF(b=0, 0, b / a );
+    IF b = 0
+        SET 0;
+    SET b / a;
 END$$
-RETURNS REAL
 DELIMITER ;
