@@ -3,8 +3,8 @@
 DELIMITER $$
 CREATE PROCEDURE AddBonus (IN user_id  INTEGER, IN project_name VARCHAR(255), IN score INTEGER)
 BEGIN
-    INSERT IGNORE `projects`
-    SET `name` = `project_name`;
+    INSERT IGNORE INTO `projects`(`name`)
+    VALUES (`project_name`);
     INSERT INTO `corrections` (`user_id`, `project_id`, `score`)
     VALUES (`user_id`,
         (SELECT `id` FROM `projects`
