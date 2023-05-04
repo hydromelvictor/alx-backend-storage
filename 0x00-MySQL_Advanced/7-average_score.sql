@@ -1,7 +1,7 @@
 -- Write a SQL script that creates a stored
 -- procedure ComputeAverageScoreForUser
 DELIMITER $$
-CREATE PROCEDURE ComputeAverageScoreForUser(user_id, )
+CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INTEGER)
 BEGIN
     SELECT AVG(`score`)
     FROM `corrections`
