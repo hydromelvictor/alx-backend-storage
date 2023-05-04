@@ -1,6 +1,7 @@
 -- Write a SQL script that creates a function
 -- SafeDiv that divides (and returns) the first
 DELIMITER $$
+DROP FUNCTION IF EXISTS SafeDiv;
 CREATE FUNCTION SafeDiv(a INT, b INT)
 RETURNS FLOAT DETERMINISTIC
 BEGIN
