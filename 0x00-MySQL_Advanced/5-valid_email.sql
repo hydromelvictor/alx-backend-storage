@@ -5,5 +5,5 @@ AFTER UPDATE
 ON `users`
 FOR EACH ROW
 Update `users`
-SET email = NEW.`email`
-WHERE `id` = NEW.`id`;
+SET valid_email = 0
+WHERE `eamil` = NEW.`email`;
