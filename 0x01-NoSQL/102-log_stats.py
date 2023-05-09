@@ -31,4 +31,4 @@ if __name__ == '__main__':
     print("IPs:")
     dix = collection.find().sort("IP", -1).limit(10)
     for i in dix:
-        print("\t{}".format(i.IP))
+        print("\t{}".format(i.ip))
