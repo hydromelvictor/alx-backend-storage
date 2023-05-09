@@ -13,11 +13,11 @@ if __name__ == '__main__':
 
       print("{} logs\n\
             Methods:\n\
-            \tmethods GET: {}\n\
-            \tmethods POST: {}\n\
-            \tmethods PUT: {}\n\
-            \tmethods PATCH: {}\n\
-            \tmethods DELETE: {}\n\
+            \tmethod GET: {}\n\
+            \tmethod POST: {}\n\
+            \tmethod PUT: {}\n\
+            \tmethod PATCH: {}\n\
+            \tmethod DELETE: {}\n\
             {} status check\
             ".format(collection.count_documents(),
             collection.count_documents({ 'method' : 'GET' }),

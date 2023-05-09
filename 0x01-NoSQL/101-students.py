@@ -11,7 +11,7 @@ def top_students(mongo_collection):
     """
     return mongo_collection.aggregate([
         {
-            '$group': {
+            '$project': {
                 'name' : '$name',
                 'averageScore' : {'$sum' : '$topics.score'}
             }
