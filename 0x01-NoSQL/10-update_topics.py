@@ -11,7 +11,7 @@ def update_topics(mongo_collection, name, topics):
     name : str
     topics : list:str
     """
-    mongo_collection.update(
+    mongo_collection.update_one(
         { 'name' : name },
         { '$set': { 'topics' : topics } }
     )
