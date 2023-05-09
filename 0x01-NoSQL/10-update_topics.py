@@ -13,5 +13,5 @@ def update_topics(mongo_collection, name, topics):
     """
     mongo_collection.update(
         { 'name' : name },
-        { '$inc': { 'topics' : topics } }
+        { '$set': { 'topics' : topics } }
     )
