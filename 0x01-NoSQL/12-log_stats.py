@@ -19,7 +19,7 @@ if __name__ == '__main__':
             \tmethods PATCH: {}\n\
             \tmethods DELETE: {}\n\
             {} status check\
-            ".format(collection.count(),
+            ".format(collection.count_documents(),
             collection.count_documents({ 'methods' : 'GET' }),
             collection.count_documents({ 'methods' : 'POST' }),
             collection.count_documents({ 'methods' : 'PUT' }),
