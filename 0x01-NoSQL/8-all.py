@@ -9,7 +9,4 @@ def list_all(mongo_collection):
     """
     mongo_collecion : db.collection
     """
-    dbname = []
-    for doc in mongo_collection.find():
-        dbname.append(doc)
-    return dbname
+    return mongo_collection.find()
