@@ -21,12 +21,12 @@ if __name__ == '__main__':
           \tmethods DELETE: {}\n\
           {} status check\
           ".format(collection.count(),
-          collection.find({ 'methods' : 'GET' }).count(),
-          collection.find({ 'methods' : 'POST' }).count(),
-          collection.find({ 'methods' : 'PUT' }).count(),
-          collection.find({ 'methods' : 'PATCH' }).count(),
-          collection.find({ 'methods' : 'DELETE' }).count(),
-          collection.find({ 'methods' : 'GET', 'path' : '/status' }).count()
+          collection.count_documents({ 'methods' : 'GET' }),
+          collection.count_documents({ 'methods' : 'POST' }),
+          collection.count_documents({ 'methods' : 'PUT' }),
+          collection.count_documents({ 'methods' : 'PATCH' }),
+          collection.count_documents({ 'methods' : 'DELETE' }),
+          collection.count_documents({ 'methods' : 'GET', 'path' : '/status' })
           ))
     dix = collection.find().sort("IP", -1).limit(10)
     for i in dix:
