@@ -20,10 +20,10 @@ if __name__ == '__main__':
             \tmethods DELETE: {}\n\
             {} status check\
             ".format(collection.count_documents(),
-            collection.count_documents({ 'methods' : 'GET' }),
-            collection.count_documents({ 'methods' : 'POST' }),
-            collection.count_documents({ 'methods' : 'PUT' }),
-            collection.count_documents({ 'methods' : 'PATCH' }),
-            collection.count_documents({ 'methods' : 'DELETE' }),
-            collection.count_documents({ 'methods' : 'GET', 'path' : '/status' })
+            collection.count_documents({ 'method' : 'GET' }),
+            collection.count_documents({ 'method' : 'POST' }),
+            collection.count_documents({ 'method' : 'PUT' }),
+            collection.count_documents({ 'method' : 'PATCH' }),
+            collection.count_documents({ 'method' : 'DELETE' }),
+            collection.count_documents({ 'method' : 'GET', 'path' : '/status' })
             ))

@@ -20,13 +20,13 @@ if __name__ == '__main__':
           \tmethods PATCH: {}\n\
           \tmethods DELETE: {}\n\
           {} status check\
-          ".format(collection.count(),
-          collection.count_documents({ 'methods' : 'GET' }),
-          collection.count_documents({ 'methods' : 'POST' }),
-          collection.count_documents({ 'methods' : 'PUT' }),
-          collection.count_documents({ 'methods' : 'PATCH' }),
-          collection.count_documents({ 'methods' : 'DELETE' }),
-          collection.count_documents({ 'methods' : 'GET', 'path' : '/status' })
+          ".format(collection.count_doucments(),
+          collection.count_documents({ 'method' : 'GET' }),
+          collection.count_documents({ 'method' : 'POST' }),
+          collection.count_documents({ 'method' : 'PUT' }),
+          collection.count_documents({ 'method' : 'PATCH' }),
+          collection.count_documents({ 'method' : 'DELETE' }),
+          collection.count_documents({ 'method' : 'GET', 'path' : '/status' })
           ))
     print("IPs:")
     dix = collection.find().sort("IP", -1).limit(10)

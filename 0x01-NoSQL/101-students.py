@@ -9,13 +9,13 @@ def top_students(mongo_collection):
     """
     mongo_collection : collection
     """
-    return mongo_collection.aggregate({
+    return mongo_collection.aggregate([
         {
             '$group': {
-                'averageScore' : {'$sum' : 'topics'}
+                'name' : '$name',
+                'averageScore' : {'$sum' : '$topics.score'}
             }
-        }
-        ,
-        {'$sort' : 'averageScore'}
-    })
+        },
+        {'$sort' : { 'averageScore' : -1 }}
+    ])
     
