@@ -28,6 +28,7 @@ if __name__ == '__main__':
           collection.count_documents({ 'methods' : 'DELETE' }),
           collection.count_documents({ 'methods' : 'GET', 'path' : '/status' })
           ))
+    print("IPs:")
     dix = collection.find().sort("IP", -1).limit(10)
     for i in dix:
-        print("{}".format(i.IP))
+        print("\t{}".format(i.IP))
