@@ -1,8 +1,8 @@
+#!/usr/bin/env python3
 """
 Write a Python function that returns all
 students sorted by average score
 """
-from pymongo import MongoClient
 
 
 def top_students(mongo_collection):
@@ -14,6 +14,5 @@ def top_students(mongo_collection):
         doc.update_one(
             { 'name' : doc.name },
             {'$set' : { 'averageScore' : sum(note)/len(note) }})
-    dbname = [doc for doc in mongo_collection.sort("averageScore", -1)]
-    return dbname
+    return mongo_collection.sort("averageScore", -1)
     
