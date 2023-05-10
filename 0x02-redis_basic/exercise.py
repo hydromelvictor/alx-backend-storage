@@ -15,7 +15,7 @@ Remember that data can be a str, bytes, int or float.
 """
 from redis import Redis
 from uuid import uuid4
-from typing import Union
+from typing import Union, Callable
 
 
 class Cache:
@@ -37,3 +37,17 @@ class Cache:
         key = str(uuid4())
         self._redis.mset({key: data})
         return key
+
+    def get(self, key: str, fn: Callable = None) -> Callable:
+        """
+        key : str
+        fn : option Callable
+        return Callable
+        """
+        value = self._redis.get(key)
+        if value == '(nil)':
+            return value
+        if fn == None:
+            return value
+            
+        return Callable(value)  or '(nil)'
