@@ -28,7 +28,7 @@ class Cache:
         return : none
         """
         self._redis = Redis()
-        self.flushdb()
+        self._redis.flushdb()
     
     def store(self, data: Union[str, int, bytes, float]) -> str:
         """
