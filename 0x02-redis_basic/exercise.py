@@ -17,6 +17,7 @@ import redis
 from uuid import uuid4
 from typing import Union, Callable, Optional
 from functools import wraps
+import sys
 
 
 def count_calls(method: Callable) -> Callable:
@@ -68,8 +69,9 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
-    @call_history
+    
     @count_calls
+    @call_history
     def store(self, data: Union[str, int, bytes, float]) -> str:
         """
         return id redis new entry create
@@ -88,3 +90,20 @@ class Cache:
         if fn:
             return fn(value)
         return value
+
+    def get_str(self) -> str:
+        """
+        string
+        """
+        return self.decode("utf-8")
+
+    def get_int(self) -> int:
+        """integer"""
+        return int.from_bytes(self, sys.byteorder)
+
+
+def replay(f: Callable):
+    """
+    f : callable
+    """
+    pass
