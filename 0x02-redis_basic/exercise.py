@@ -26,7 +26,7 @@ def count_calls(method: Callable) -> Callable:
     """
     key = __qualname__
 
-    @wraps
+    @wraps(method)
     def wrapper(*args, **kwargs):
         """
         arguments list or dict
