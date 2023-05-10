@@ -15,6 +15,7 @@ Remember that data can be a str, bytes, int or float.
 """
 from redis import Redis
 from uuid import uuid4
+from typing import Union
 
 
 class Cache:
@@ -29,7 +30,7 @@ class Cache:
         self._redis = Redis()
         self.flushdb()
     
-    def store(self, data: str|int|bytes|float) -> str:
+    def store(self, data: Union[str, int, bytes, float]) -> str:
         """
         return id redis new entry create
         """
