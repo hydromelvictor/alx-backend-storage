@@ -52,7 +52,7 @@ def call_history(method: Callable) -> Callable:
         """
         self._redis.rpush(entry, str(args))
         outer = method(self, *args, **kwargs)
-        self._redis.rpush(out, str(res))
+        self._redis.rpush(out, str(outer))
         return outer
     return wrapper
 
