@@ -14,7 +14,7 @@ def decoration(method: Callable) -> Callable:
     methode callable
     """
     key = "count:{}".format(url)
-    cache = "cache:{}".format(url)
+    cache = "cached:{}".format(url)
 
     @wraps(method)
     def wrapper(self, *args, **kwargs):
