@@ -68,7 +68,6 @@ class Cache:
         """
         self._redis = redis.Redis()
         self._redis.flushdb()
-
     
     @count_calls
     @call_history
@@ -100,10 +99,3 @@ class Cache:
     def get_int(self) -> int:
         """integer"""
         return int.from_bytes(self, sys.byteorder)
-
-
-def replay(f: Callable):
-    """
-    f : callable
-    """
-    pass
